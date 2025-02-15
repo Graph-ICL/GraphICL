@@ -1,116 +1,131 @@
 # GraphICL
 
-## 项目描述
+## Project description
 
-本项目旨在探索和评估大语言模型（LLM）在图上下文学习任务中的表现。通过设计一系列实验，我们测试了模型在处理图问题时的上下文推理能力。实验代码包含测试的框架、自定义图数据集、模型配置和评估指标。
+This project aims to explore and evaluate the performance of LLM on graph context learning tasks. By designing a series of experiments, we test the contextual reasoning ability of the model when dealing with graph problems. The experimental code contains the tested framework, custom graph datasets, model configurations, and evaluation metrics.
 
-## 安装要求
+## Installation requirements
 
-### 环境要求
+### Environmental requirements
 
-- **操作系统**：Linux
-- **Python**：3.8+
+- **Operating system**:Linux
+- **Python**:3.8+
 
-### 安装步骤
+### Installation steps
 
-1. 克隆项目到本地：
+1. Clone the project locally:
     ```bash
     git clone https://github.com/GraphICL/GraphICL.git
     cd GraphICL
     ```
 
-2. 安装依赖：
+2. Installing dependencies:
     ```bash
     pip install -r o1.txt
     npm install
     ```
 
-## 项目特点
+## Project features
 
-- **针对图上下文的专项测试**：
-本项目专注于评估大语言模型在处理问题时的上下文理解与推理能力，填补了大模型在图相关任务中的评测空白。
+- **Specific tests for the graph context**:
+This project focuses on evaluating the contextual understanding and reasoning ability of large language models in dealing with problems, filling the gap in the evaluation of large models in graph-related tasks.
 
+- **Flexible experimental framework**:
+It provides highly configurable experimental Settings, supports custom graph datasets, model types, etc., and facilitates researchers to quickly adjust experimental designs according to their needs.
 
-## 基本结构
+- **Multi-dimensional evaluation system**:
+A variety of test tasks (such as the same task for the same graph, different tasks for the same graph, etc.) are designed to comprehensively evaluate the performance of the model in different graph context scenarios.
+
+- **Modular design**:
+The code is clearly structured, and the modular design makes it easy and fast to scale to new tasks, models, or datasets.
+
+- **Cross-platform compatibility**:
+It supports running in multiple environments (e.g., local machine, cloud server), and is compatible with mainstream large model frameworks (e.g., qwen, llama, etc.).
+
+- **Open source and reproducibility**:
+The project is completely open source and provides detailed documentation and sample code to ensure reproducibility and transparency of experiments.
+
+## Basic structure
     GraphICL/
-    ├── data/                   # 数据目录，存放实验所需的数据集
-    ├── evaluation/             #代码目录，包含测试代码和结果分析工具
-    │   ├── code_GraphInstruct/     # GraphInstruct 数据集测试相关代码
-    │   ├── code_GraphSCR/          # GraphSCR 数据集测试相关代码
-    │   ├── code_GraphTRB/          # GraphTRB 数据集测试相关代码
-    │   └── templates/              # 模板文件，用于构建大模型输入
-    ├── generate_dataset/       # 数据集生成代码
-    ├── result/                 # 实验结果目录，存放实验输出结果
-    │   ├── GraphInstruct/          # GraphInstruct 数据集输出结果
-    │   ├── GraphSCR/               # GraphSCR 数据集输出结果
-    │   └── GraphTRB/               # GraphTRB 数据集输出结果
-    ├── environments.yml        # 环境配置文件，用于设置实验环境
-    ├── o1.txt                 # 项目依赖文档
-    └── README.md              # 项目说明文档
+    ├── data/                   # Data directory, where the datasets needed for the experiment are stored
+    ├── evaluation/             #Code directory containing test code and result analysis tools
+    │   ├── code_GraphInstruct/     # Testing code on the GraphInstruct dataset
+    │   ├── code_GraphSCR/          # Testing code on the GraphSCR dataset
+    │   ├── code_GraphTRB/          # Testing code on the GraphTRB dataset
+    │   └── templates/              # Template files, used to build LLM inputs
+    ├── generate_dataset/       # Dataset generation code
+    ├── result/                 # Experimental results directory, where experimental output results are stored
+    │   ├── GraphInstruct/          # Output from the GraphInstruct dataset
+    │   ├── GraphSCR/               # Output from the GraphSCR dataset
+    │   └── GraphTRB/               # Output from the GraphTRB dataset
+    ├── environments.yml        # Environment configuration file, used to set up the experiment environment
+    ├── o1.txt                 # Project dependency documentation
+    └── README.md              # Project description documentation
 
-## 使用方法
+## How to use
 
-- **命令行**：
-    （以GraphInstruct数据集的qwen-7B模型测试为例）
-    - 切换目录：
+- **Command line**:
+    (Using qwen-7B model testing based on GraphInstruct dataset as an example)
+    - Change directories:
         ```bash
         cd Code/GraphICL/evaluation/code_GraphInstruct/qwen-7B
         ```
-    - 修改配置参数：
-        ```bash
+    - Modify configuration parameters:
+        ```json
         {
-            "model_path": "/home/zch/Code/model/Qwen2.5-7B/Qwen/Qwen2___5-7B-Instruct",     # 模型路径
-            "data_files": "/home/zch/Code/GraphICL/data/GraphInstruct.json",        # 数据集路径
-            "template": "query_template2",      # 使用模板
-            "template_icl": "query_template_icl2",      # 使用模板
-            "context_size": 8,     # 上下文示例数量
-            "result_file": "test1"      # 要进行准确率评估的测试结果文件标识
+            "model_path": "/home/zch/Code/model/Qwen2.5-7B/Qwen/Qwen2___5-7B-Instruct",     // Model path
+            "data_files": "/home/zch/Code/GraphICL/data/GraphInstruct.json",        // Dataset path
+            "template": "query_template2",      // Using templates
+            "template_icl": "query_template_icl2",      // Using templates
+            "context_size": 16,     // Number of context examples
+            "result_file": "test1"      // Identification of the test result file to be evaluated for accuracy
         }
         ```
-    - 启动项目：
+    - Start the project:
         ```bash
-        python IclAbilityTest.py            # 无上下文用例结果生成
-        python IclAbilityTestResults.py     # 无上下文用例结果准确率评估
-        python IcLExamples.py               # 有上下文用例结果生成
-        python IclExamplesTestResults.py    # 有上下文用例结果准确率评估
+        python IclAbilityTest.py            # generate the results for the no context case
+        python IclAbilityTestResults.py     # Evaluate the accuracy of the results for the no context case
+        python IcLExamples.py               # generate the results for the contextual use cases
+        python IclExamplesTestResults.py    # Evaluate the accuracy of the results for the contextual use cases
         ```
-    - 生成结果：
-        结果生成在Code/GraphICL/result/GraphInstruct/qwen-7B中，可自行修改结果生成目录路径，结果各文件夹如下：
-        - responses：无上下文用例结果
-        - task_accuracies：无上下文用例结果准确率
-        - responses_with_context_all_tasks：有上下文用例结果
-        - ICLtask_accuracies：有上下文用例结果准确率
-    - 具体步骤：
-        1. 修改配置参数，运行有/无上下文用例结果生成程序文件
-        2. 在result文件夹下找到有/无上下文用例结果文件，确定文件标识
-        3. 修改配置参数文件中的要进行准确率评估的测试结果文件标识，运行有/无上下文用例结果准确率评估程序文件
-        4. 在result文件夹下找到所得到的结果准确率文件
+    - Generate results:
+        Results generated in the Code/GraphICL/result/GraphInstruct/qwen-7B, can modify the results generated directory path, result the folder as below:
+        - responses: results for the no context case
+        - task_accuracies: accuracy of the results for the no context case
+        - responses_with_context_all_tasks: results for the contextual use cases
+        - ICLtask_accuracies: accuracy of the results for the contextual use cases
+    - Specific steps:
+        1. Modify the configuration parameters and run the program file that generates the results for the no context case or the contextual use cases.
+        2. Locate the results file under the results folder and determine the identification of the test result file.
+        3. Modify the identification of the test result file to be evaluated for accuracy in the configuration parameter file, and run the program file that evaluate the accuracy of the results.
+        4. Locate the accuracy of the results file in the result folder.
 
-## 附录
+## Appendices
 
-### 数据集GraphSCB
+### Dataset GraphSCB
 
-| 同类 `task` | 同个图 | 不同的问题 |
-| ----------- | ------ | ---------- |
+| same task | same graph | different question |
+| --------- | ---------- | ----------------- |
 
+Requirements:
 
- `connectivity`,`shortest`, `flow` 
-1. - 根据结点数不同，分为不同难度
-     `easy: [5,35]; middle: (35,65], hard: (65,100]` ,
-     即`easy: [5,36); middle: [36,66), hard: [66,101)` 
-   - 图的数量尽量抽取 100 个，若难度范围内没有 100 个图，则全部抽取
+Only `connectivity`, `shortest`, and `flow` questions will be extracted, as these questions can be changed
+1. - According to the different number of nodes, it is divided into different difficulties
+     `easy: [5,35]; middle: (35,65], hard: (65,100]`  
+   - The number of graphs is as far as possible to extract 100, if there are not 100 graphs in the difficulty range, all of them are extracted
    
-   - 建立主键 `"graph"`，和键 `"complexity"`
+   - Create primary key `"graph"`, and key `"complexity"`
    
-2. 为每个问题生成同类别问题 ==16== 个
+2. For each question, 16 questions of the same category were generated
 
+3. Each question uses its own algorithm to calculate the correct answer to ensure that the answer is correct
 
-3. 答案格式使用 `###` 作为前缀符
-   eg：`### Yes` 或 `### No`
+4. The answer format uses `###` as a prefix
+   eg:`### Yes` or `### No`
 
 > [example]
 >
-> 数据集的 `json` 格式：
+> The `json` format of the dataset:
 >
 > ```json
 > {
@@ -118,22 +133,37 @@
 >     "answer":{},
 >     "task":{},		// connectivity, shortest, flow
 >     "graph":{},    // graph<num>
->     "complexity":{}      // easy, middle, hard   
+>     "complexity":{}      // easy, middle, hard
 > }
 > ```
 >
 
-对应文件 `GraphSCB.json`
+The corresponding file is `GraphSCB.json`
 
-### 数据集GraphTRB
+### Dataset GraphTRB
 
-| 不同类 `task` | 同个图 | 不同的问题 |
-| ------------- | ------ | ---------- |
+| different task | same graph | different question |
+| -------------- | ---------- | ------------------ |
 
+Requirements:
+
+1. - 100 graphs, all extracted for `flow` class tasks
+   - Create primary key `"graph"`
+   - First we do the directed graph task, then we remove the pointing and do the undirected graph task.
+
+2. - One for each of the seven different category questions was generated for each graph
+   - Each immutable problem is augmented into nine problems, and a random edge deletion is not repeated. (Including the original one, deleted 8 times)
+    We approximately treat the graph after removing an edge as the same as the original graph, so the value of '"graph"' does not change
+   - Each modifiable question was expanded into 9 questions, and the question randomization was performed together with the data set. 
+   
+3. Each question uses its own algorithm to calculate the correct answer to ensure that the answer is correct
+
+4. The answer format uses `###` as a prefix
+   eg:`### Yes` or `### No`
 
 > [example]
 >
-> 数据集的 `json` 格式：
+> The `json` format of the dataset:
 >
 > ```json
 > {
@@ -152,4 +182,4 @@
 | -------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------- | -------- | -------- |
 | weight of the shortest path<br />(num) | maximum sum of the weights of three interconnected nodes<br />(num) | the maximum flow between the two nodes<br />(num) | Yes/No   | Yes/No   |
 
-对应文件 `GraphTRB.json`
+The corresponding file is `GraphTRB.json`
