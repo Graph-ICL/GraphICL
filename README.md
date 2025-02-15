@@ -99,7 +99,7 @@ This project aims to explore and evaluate the performance of LLM on graph contex
 >     "answer":{},
 >     "task":{},		// connectivity, shortest, flow
 >     "graph":{},    // graph<num>
->     "complexity":{}      // easy, middle, hard
+>     "complexity":{}      // easy, middle, hard---->small, medium, large
 > }
 > ```
 >
