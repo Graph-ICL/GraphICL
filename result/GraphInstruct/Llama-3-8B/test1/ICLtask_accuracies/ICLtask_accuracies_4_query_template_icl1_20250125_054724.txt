@@ -1,0 +1,20 @@
+Accuracy for task 'cycle': 95.14%
+Accuracy for task 'connectivity': 86.16%
+Accuracy for task 'bipartite': 69.05%
+Accuracy for task 'topology': 91.86%
+Accuracy for task 'shortest': 19.68%
+Accuracy for task 'triangle': 71.04%
+Accuracy for task 'flow': 27.90%
+Accuracy for task 'hamilton': 54.12%
+Accuracy for task 'substructure': 56.75%
+
+Overall accuracy per task:
+Task: cycle, Accuracy: 95.14%
+Task: connectivity, Accuracy: 86.16%
+Task: bipartite, Accuracy: 69.05%
+Task: topology, Accuracy: 91.86%
+Task: shortest, Accuracy: 19.68%
+Task: triangle, Accuracy: 71.04%
+Task: flow, Accuracy: 27.90%
+Task: hamilton, Accuracy: 54.12%
+Task: substructure, Accuracy: 56.75%
