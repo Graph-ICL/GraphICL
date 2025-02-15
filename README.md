@@ -15,7 +15,7 @@ This project aims to explore and evaluate the performance of LLM on graph contex
 
 1. Clone the project locally:
     ```bash
-    git clone https://github.com/GraphICL/GraphICL.git
+    git clone https://github.com/Graph-ICL/GraphICL.git
     cd GraphICL
     ```
 
