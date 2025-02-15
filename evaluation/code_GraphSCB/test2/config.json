@@ -1,0 +1,9 @@
+{
+    "model_path": "/home/zch/Code/model/Qwen2.5-7B/Qwen/Qwen2___5-7B-Instruct",
+    "data_files": "/home/zch/Code/GraphICL/data/GraphSCB.json",
+    "template": "query_template2",
+    "template_icl": "query_template_icl2",
+    "context_size": 8,
+    "example_difficulty": "hard",
+    "result_file": "8_middle_query_template_icl2_20250209_234210"
+}

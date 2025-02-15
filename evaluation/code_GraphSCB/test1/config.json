@@ -1,0 +1,8 @@
+{
+    "model_path": "/home/zch/Code/model/Qwen2.5-7B/Qwen/Qwen2___5-7B-Instruct",
+    "timestamps": "20250118_033305",
+    "data_files": "/home/zch/Code/GraphICL/data/GraphSCB.json",
+    "template": "/home/zch/Code/GraphICL/evaluation/templates/query_template2.txt",
+    "template_icl": "/home/zch/Code/GraphICL/evaluation/templates/query_template_icl2.txt",
+    "context_size": 4
+}

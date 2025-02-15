@@ -1,0 +1,9 @@
+{
+    "model_path": "/home/zch/Code/model/Qwen2.5-7B/Qwen/Qwen2___5-7B-Instruct",
+    "data_files": "/home/zch/Code/GraphICL/data/GraphTRB.json",
+    "template": "query_template2",
+    "template_icl": "query_template_icl2",
+    "question": "group2",
+    "context_size": 4,
+    "result_file": "group1_query_template_icl2_20250205_032557"
+}

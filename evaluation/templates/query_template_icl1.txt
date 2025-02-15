@@ -1,0 +1,15 @@
+The following is a Graph problem:
+
+[ICL Examples]
+
+{context}
+
+[Graph Problem]
+
+{problem}
+
+Your task is to think about this [Graph Problem] and provide a solution based on the [ICL Examples] I provide as hints.
+
+Please put your final answer(only answer) (i.e., the index) in \boxed{{}}.
+
+If you only want to answer "Yes" or "No" in the answer, you can only return the answer of "Yes" or "No", not an index value (such as 0 or 1)

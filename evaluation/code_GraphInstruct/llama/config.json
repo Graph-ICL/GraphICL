@@ -1,0 +1,8 @@
+{
+    "model_path": "/home/zch/Code/model/Llama-3-8B/LLM-Research/Meta-Llama-3-8B-Instruct",
+    "data_files": "/home/zch/Code/GraphICL/data/GraphInstruct.json",
+    "template": "query_template2",
+    "template_icl": "query_template_icl2",
+    "context_size": 8,
+    "result_file": "8_query_template_icl2_20250128_111154"
+}

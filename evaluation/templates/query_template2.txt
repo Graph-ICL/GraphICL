@@ -1,0 +1,9 @@
+The following is a Graph problem:
+
+[Graph Problem]
+
+{problem}
+
+Your task is to think this [Graph Problem] and answer the solution.
+
+Please think step by step, and put your final answer(i.e., the index) in \boxed{{}}.

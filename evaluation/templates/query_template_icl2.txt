@@ -1,0 +1,13 @@
+The following is a Graph problem:
+
+[ICL Examples]
+
+{context}
+
+[Graph Problem]
+
+{problem}
+
+Your task is to think about this [Graph Problem] and provide a solution based on the [ICL Examples] I provide as hints.
+
+Please think step by step, and put your final answer(i.e., the index) in \boxed{{}}.
