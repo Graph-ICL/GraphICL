@@ -7,91 +7,73 @@ from collections import defaultdict
 
 
 def extract_edges_a(input_str):
-    """
-    从输入字符串中提取边的信息
-    字符串中建图 (i, j) 式
-    :param input_str: 输入字符串
-    :return: 边的列表
-    """
-    # 找到边的部分
+
     edges_start = input_str.find("edges are:")
     if edges_start == -1:
-        raise ValueError("输入字符串中没有找到 'edges are:' 部分")
+        raise ValueError("'edges are:' ")
     
-    # 提取边的字符串
+
     edges_str = input_str[edges_start + len("edges are:"):].split(".")[0].strip()
     
-    # 解析边
+
     edges = []
-    for edge in edges_str.split(")"):  # 按右括号分割
-        edge = edge.strip()  # 去掉多余的空格
-        if not edge:  # 如果边为空，跳过
+    for edge in edges_str.split(")"): 
+        edge = edge.strip()  
+        if not edge:  
             continue
-        # 去掉左括号并分割节点
+   
         edge = edge.lstrip("(")
         nodes = edge.split(",")
-        if len(nodes) != 2:  # 确保边的格式正确
+        if len(nodes) != 2: 
             continue
         try:
-            # 将节点转换为整数
+        
             u = int(nodes[0].strip())
             v = int(nodes[1].strip())
             edges.append((u, v))
         except ValueError:
-            # 如果转换失败，跳过该边
+        
             continue
     return edges
 
 
 def extract_edges_b(input_str):
-    """
-    从输入字符串中提取边的信息
-    字符串中建图 (i->j) 式
-    :param input_str: 输入字符串
-    :return: 边的列表
-    """
-    # 找到边的部分
+
     edges_start = input_str.find("edges are:")
     if edges_start == -1:
-        raise ValueError("输入字符串中没有找到 'edges are:' 部分")
+ 
     
-    # 提取边的字符串
+
     edges_str = input_str[edges_start + len("edges are:"):].split(".")[0].strip()
     
-    # 解析边
+
     edges = []
     for edge in edges_str.split():
-        # 去掉括号并分割节点
+
         edge = edge.strip("()")
-        if not edge:  # 如果边为空，跳过
+        if not edge:
             continue
         nodes = edge.split("->")
-        if len(nodes) != 2:  # 确保边的格式正确
+        if len(nodes) != 2: 
             continue
         try:
-            # 将节点转换为整数
+
             u = int(nodes[0].strip())
             v = int(nodes[1].strip())
             edges.append((u, v))
         except ValueError:
-            # 如果转换失败，跳过该边
+ 
             continue
     return edges
 
 
 def extract_edges_c(input_str):
-    """
-    从输入字符串中提取边的信息
-    字符串中建图 (u,v,w) 式
-    :param input_str: 输入字符串
-    :return: 边的列表
-    """
-    # 找到边的部分
+
     edges_start = input_str.find("edges are:")
     if edges_start == -1:
-        raise ValueError("输入字符串中没有找到 'edges are:' 部分")
+ 
     
-    # 提取边的字符串
+
     edges_str = input_str[edges_start + len("edges are:"):].split(".")[0].strip()
     
     # 解析边
