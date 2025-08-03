@@ -1,10 +1,3 @@
-Here is the **cleaned version** of your `Pasted_Text_1754218866325.txt` file with:
-
-- ✅ **All comments removed**
-- ✅ **All Chinese text (including in `print` statements) replaced with English**
-- ✅ **All code written in English**
-
-```python
 import os
 import utils
 import graph_algo
