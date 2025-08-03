@@ -1,0 +1,9 @@
+{
+    "model_path1": "/home/zch/Code/model/DeepSeek-R1-Distill-Qwen-7B/deepseek-ai/DeepSeek-R1-Distill-Qwen-14B",
+    "model_path2": "/home/zch/Code/model/Qwen2.5-7B/Qwen/Qwen2___5-7B-Instruct",
+    "data_files": "/home/zch/Code/GraphICL/data/GraphInstruct.json",
+    "template": "query_template2",
+    "template_icl": "query_template_icl2",
+    "context_size": 8,
+    "result_file": "8_query_template_icl2_20250423_000353"
+}
