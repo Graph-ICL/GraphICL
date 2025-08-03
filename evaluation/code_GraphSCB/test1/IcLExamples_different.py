@@ -16,6 +16,7 @@ os.environ['CUDA_VISIBLE_DEVICES'] = '4,5,6,7'
 def apply_chat_template(toker, messages):
     input_prompt = toker.apply_chat_template(messages, add_generation_prompt=True, tokenize=False)
     return toker(input_prompt, add_special_tokens=False).input_ids
+    
 
 def prepare_input_with_context(template, input_d, context_examples):
     """
